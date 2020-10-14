@@ -17,5 +17,8 @@ public class EchoClient {
     try {
   
     Socket socket = new Socket(server, portNumber); // Connect to the server
-
+   
+    // Establish input and output streams into and out of the socket
+    OutputStream output = socket.getOutputStream();
+    InputStream input = socket.getInputStream();
   

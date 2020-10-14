@@ -37,4 +37,15 @@ public class EchoClient {
       System.out.write(incomingByte);
     }
     
-    
+    // Flush streams
+    output.flush();
+    System.out.flush();
+
+    // Close the socket when we're done reading from it
+    socket.close();
+
+    // Close streams
+    input.close();
+    output.close();
+
+

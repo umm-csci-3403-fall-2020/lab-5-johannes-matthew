@@ -19,7 +19,10 @@ public class EchoServer {
 
           OutputStream output = client.getOutputStream(); // Stream into the server socket
           
-
+          // Run forever, which is common for server style services
+          while (true) {
+            output.write(input.read()); // Write client output stream into the socket input stream
+          }
           
         // *Very* minimal error handling.
         } catch (IOException ioe) {

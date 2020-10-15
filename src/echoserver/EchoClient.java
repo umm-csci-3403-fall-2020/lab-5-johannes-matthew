@@ -23,18 +23,16 @@ public class EchoClient {
     InputStream input = socket.getInputStream();
   
 
-    /* Create variable to store bytes from the System.in stream
+    /* Create variable to store data from the System.in stream
     An int is used because we need additional space to represent the end of the stream
     The convention to use an int rather than a short is established by System.in */
     int dataFromInput;
 
     // Read until the end of file or stream
     while ((dataFromInput = System.in.read()) != -1) {
-      output.write((byte) dataFromInput); // Write dataFromInput byte to output stream
+      output.write(dataFromInput); // Write dataFromInput int to output stream
 
-      // Read echos and write them to output
-      byte incomingByte = (byte) input.read(); // Get byte from stream
-      System.out.write(incomingByte);
+      System.out.write(input.read()); // Write data from the input stream to system out
     }
     
     // Flush streams
